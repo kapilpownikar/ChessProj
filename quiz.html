@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Quiz Application Position Rating</title>
+  <link rel="stylesheet" href="css/chessboard.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="jqueryui/jquery-ui.css">
+  <link rel="stylesheet" href="jqueryui/jquery-ui.structure.css">
+  <link rel="stylesheet" href="jqueryui/jquery-ui.theme.css">
+</head>
+<body>
+    <h3> Quiz-type Web App Demo </h3>
+    <div id="quizboard" style="width: 30%"></div>
+    <label>Status (Side to Move):</label>
+    <div id="status" style="position:relative; left:50px;"></div>
+    <label>FEN: </label>
+    <div id="fen" style="position:relative; left:50px;"></div>
+    <label>White ELO: </label>
+    <div id="whiteELO" style="position:relative; left:50px;"></div>
+    <label>Black ELO: </label>
+    <div id="blackELO" style="position:relative; left:50px;"></div>
+    <label>Result: </label>
+    <div id="commentary"></div>
+    <label>Current Streak: </label>
+    <div id="streak"></div>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/chessboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js" integrity="sha384-s3XgLpvmHyscVpijnseAmye819Ee3yaGa8NxstkJVyA6nuDFjt59u1QvuEl/mecz" crossorigin="anonymous"></script>
+    <script src="jqueryui/jquery-ui.js" type="text/javascript"></script>
+    <input type="button" value="White" id="WhiteButton">
+    <input type="button" value="Black" id="BlackButton">
+    <input type="button" value="Equal" id="EqualButton">
+    <input type="button" value="Get New Board Position" id="NewBoardButton">
+    <script src="quiz_script.js"></script>
+</body>
