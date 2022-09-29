@@ -1,0 +1,27 @@
+.ItemG {
+    background-color: brown;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    grid-area: overlap;
+    align-self: center;
+    justify-self: center;
+}
+
+.ItemC {
+    background-color: #8a2be2;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    grid-area: overlap;
+    align-self: center;
+    justify-self: center;
+}
+
+.container{
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 2fr;
+    grid-template-areas: "overlap";
+}
