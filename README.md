@@ -6,7 +6,8 @@ Interactive Quiz-type Web Application that displays board states from recorded p
 
 File structure breakdown:
 
-1. database_gen.py - Receives a directory of .pgn files (Portable Game Notation) containing multiple games and utilizes stockfish to analyze and record interesting board states throughout the games. Outputs statistics for the boardstates into a .csv file (Requires anywhere from 20-24 hours to parse through 800+ games)
+1. database_gen.py - Receives a directory of .pgn files (Portable Game Notation) containing multiple games and utilizes stockfish to analyze and record interesting board states throughout the games. <br/>
+Outputs statistics for the boardstates into a .csv file (Requires anywhere from 20-24 hours to parse through 800+ games)
 
   Note: Output can also be redirected to another format supported by pandas dataframe conversion.
 
