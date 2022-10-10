@@ -12,7 +12,7 @@ File structure breakdown:
 
 2. backend.py - Flask app that selects a randomized boardstate from given database based on user-selected criteria [Easy] / [Med] / [Hard] as well as communicating the outcome results to the front-end (either correct/wrong choice chosen by the user) as well as statistics of that boardstate in detail.
 
-3. testscript.js - front-end component with button-functionality (jquery ajax) as well as updating variables as the game progresses
+3. testscript.js - front-end component with button-functionality (jquery ajax) as well as updating variables as the game progresses <br/>
     Contains: - Chessboard.js object with game functionality, 
               - Updates on game statistics per puzzle
               - Button behavior
