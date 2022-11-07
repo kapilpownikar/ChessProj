@@ -17,6 +17,8 @@ var white_wdl = 0
 var black_wdl = 0
 var white_cp = 0
 var black_cp = 0
+var level_val = 0
+var $level = $('#level')
 
 function onDragStart (source, piece, position, orientation) {
     // do not pick up pieces if the game is over
@@ -80,6 +82,12 @@ function onDragStart (source, piece, position, orientation) {
     $stm.html(side_move)
     $fen.html(game.fen())
     $streak.html(streak_val)
+	
+	if (level_val === 0) 
+    	$level.html('Easy')
+		else if (level_val === 1)
+			$level.html('Medium')
+			else $level.html('Hard')
   }
 
 // Button functionalities
@@ -110,6 +118,7 @@ $(document).ready(function(){
                 streak_val = 0;
             }
             $streak.html(streak_val)
+			$level.html(level_val)
         })
         .fail(function(err) {
           console.log("failure white button");
@@ -302,5 +311,47 @@ $streak.html(0);
 board = Chessboard('quizboard', config);
 $(window).resize(board.resize);
 updateStatus();
+
+/* XM added toggle actions for level selection drop-down menu */
+function setEasy() {
+	level_val = 0;
+	updateStatus();
+}
+
+function setMedium() {
+	level_val = 1;
+	updateStatus();
+}
+
+function setHard() {
+	level_val = 2;
+	updateStatus();
+}
+
+/* XM added for hamburger menu */
+/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "inline") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "inline";
+  }
+}
+
+const hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function () {
+  this.classList.toggle("close");
+});
+
+$(".animated-progress span").each(function () {
+  $(this).animate(
+    {
+      width: $(this).attr("data-progress") + "%",
+    },
+    300
+  );
+  $(this).text($(this).attr("data-progress") + "%");
+});
 
 
