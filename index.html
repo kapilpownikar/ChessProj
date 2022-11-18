@@ -35,22 +35,34 @@ h2 {
 	               <!-- <span class="arrow"></span> -->
 	             </a>
 	             <ul class="submenu">
-	               <li><a href="#" class="menu-link">Position Info</a></li>        
+	               <li><a href="#popup1" class="menu-link" onclick="popInfo()">Position Info</a></li>        
 	               <li class="has-dropdown">
 	                 <a href="#" class="menu-link">Difficulty Level
 	                   <span class="arrow"></span></a>
 	                 <ul class="submenu">
-	                   <li><a href="#" class="menu-link" onclick="setEasy();">Easy</a></li>
-	                   <li><a href="#" class="menu-link" onclick="setMedium();">Medium</a></li>
-	                   <li><a href="#" class="menu-link" onclick="setHard();">Hard</a></li>
+	                   <li><a href="#" class="menu-link" onclick="setLevel(0)">Easy</a></li>
+	                   <li><a href="#" class="menu-link" onclick="setLevel(1);">Medium</a></li>
+	                   <li><a href="#" class="menu-link" onclick="setLevel(2);">Hard</a></li>
 	                 </ul>
 	               </li>
 	             </ul>
 	           </li>
 	         </ul>
 	       </nav>
-		   
 		
+		<!-- <div class="item-center">  -->
+			<div id="popup1" class="overlay">
+				<div class="popup">
+					<h2>Position Information</h2>
+					<a class="close" href="#">&times;</a>
+					<div class="content">
+						<div class="infoline"><B>ELO:</B> <span id="elo"></span></div>	
+						<div class="infoline"><B>FEN:</B> <span id="fen_string"></span></div>
+						<div class="infoline"><B>CP:</B> <span id="cp_string"></span></div>
+					</div>
+				</div>
+			</div>
+		<!--</div> -->
 		
         <div class="nested_chessbox">
             <div class="boardelem" id="quizboard"></div>
@@ -63,7 +75,7 @@ h2 {
             <div class="metrics">WDL Metrics: </div>
             <div>WDL Black: <div id="blackWDL"></div></div>
             <div>WDL White: <div id="whiteWDL"></div></div>
-            <div class="metrics">CP Metrics: </div>
+<!--            <div class="metrics">CP Metrics: </div> -->
             <div>CP Black: <div id="blackCP"></div></div>
             <div>CP White: <div id="whiteCP"></div></div>
         </div>
@@ -71,22 +83,20 @@ h2 {
             <input type="button" value="White" id="WhiteButton">
 			<input type="button" value="Equal" id="EqualButton">
             <input type="button" value="Black" id="BlackButton">
-        </div>
-        <div class="difficulty">
+        </div> 
+ <!--       <div class="difficulty">
             <input type="button" value="Easy Puzzle" id="EasyButton">
             <input type="button" value="Medium Puzzle" id="MediumButton">
             <input type="button" value="Hard Puzzle" id="HardButton">
-        </div>
+        </div> -->
         <div class="commentary">
-			<img src="img/correct.png" style="width:35px;height:35px;margin:0 auto;">
-			<div class="animated-progress progress-grey">
-               <span data-progress="50"></span>
-			</div>
+			<div class="result" id="resultIcon"><div id="note"></div></div>
+			<div id="myProgress">
+			  <div id="myBar">50%</div>
+			</div>	
             <div>Current level: <div id="level"></div></div>
-            <div>Streak: <div id="streak"></div></div>
-			<!-- <input type="button" class="newbutton" value="New"> -->
-			<!-- <div><input type="button" style="width:95%; padding:40px;" value="Next" id="NextButton"></div> -->
-			<button class="button-round" role="button">Next</button>
+            <div>Scores: <div id="streak"></div></div>
+			<button class="button-round" role="button" id="NextButton">Next</button>
         </div>
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/chessboard.js"></script>

@@ -15,7 +15,8 @@ body{text-align: center;
 }
 
 .wrappermain > div{
-    background-color: rgba(75, 45, 17, 0.637);
+/*    background-color: rgba(75, 45, 17, 0.637); */
+	background-color: rgba(166, 131, 66, 0.719);
     padding: 1em;
 }
 
@@ -147,7 +148,7 @@ body{text-align: center;
     border-color: black;
     color:azure;
     display: grid;
-	grid-template-rows: 30px 50px;
+	grid-template-rows: 50px 50px;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 1em;
     border-radius: 15px;
@@ -164,7 +165,9 @@ body{text-align: center;
 .result{
 	grid-column:1/2;
 	display: grid;
-    place-items: center;
+	width: 50%;
+	height: 50px;
+	justify-self: center;
 }
 
 /* XM added for hamburger menu https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
@@ -326,7 +329,7 @@ header {
   white-space: nowrap;
   padding: 0.5em 0;
   min-width: 10em;
-  z-index:2;
+  z-index:2; /* appearing in front */
 
   /* hide submenus */
   opacity: 0;
@@ -505,43 +508,25 @@ main {
   height: 200vh;
 }
 
-/* Progress bar, XM added from https://codepen.io/alvarotrigo/pen/WNZQdyq */ 
-.animated-progress {
-  /*width: 300px;*/
+/* Progress bar, XM added from https://codepen.io/alvarotrigo/pen/WNZQdyq (removed)*/ 
+/* XM: Another progress bar https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_progressbar_label_js */
+#myProgress {
   grid-column-start: 2;
-  grid-column-end: 4;
-  height: 20px;
-  /*border-radius: 5px; */
-  margin: 5px 5px;
-  color: white;
-  background-color: white;
-  border: 0px solid black;
-  overflow: hidden;
-  position: relative;
+  grid-column-end: 4; 
+  width: 100%;
+  height: 50%;
+  align-self: center;
+  border-radius: 5px;
+  background-color: #ddd;
 }
 
-.animated-progress span {
-  height: 100%;
-  display: block;
-  width: 0%;
-  color: rgb(255, 251, 251);
-  line-height: 20px;
-  position: absolute;
-  text-align: end;
-  padding-right: 5px;
-}
-
-.progress-blue span {
-  background-color: blue;
-}
-.progress-grey span {
-  background-color: #D3D3D3;
-}
-.progress-black span {
+#myBar {
+  width: 50%;
+  height: 22px;
   background-color: black;
-}
-.progress-red span {
-  background-color: red;
+  text-align: center;
+  line-height: 22px;
+  color: white;
 }
 
 /* XM's definitions */
@@ -618,4 +603,72 @@ main {
   cursor: not-allowed;
   background: rgba(0, 0, 0, .08);
   color: rgba(0, 0, 0, .3);
+}
+
+/* XM added popup window for position info, based on https://codepen.io/imprakash/pen/GgNMXO */ 
+.overlay {
+  /* position: fixed; */
+  position: absolute;
+  left: -45%;
+  top: 0;
+  bottom: 0;
+  /* left: 0; */
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  z-index: 4;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 20%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  z-index: 4;
+}
+
+.popup h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  /* color: #06D85F; */
+  color: rgba(75, 45, 17, 0.637);
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.popup .content .infoline {
+	padding: 10px; /* vertical space between position info lines */
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 60%;
+  }
+  .popup{
+    width: 60%;
+  }
 }
